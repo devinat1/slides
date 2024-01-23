@@ -1,0 +1,146 @@
+---
+title: Malla Demystifying Real-world Large Language Model Integrated Malicious Services
+author: Devin Ersoy
+institute: Purdue University
+date: 2024-01-17
+format: revealjs
+highlight-style: github
+slide-number: c/t
+---
+
+## The Point
+::: {.incremental}
+- Identify *Mallas*
+	- LLM integrated applications as malicious services
+	- Services that provide:
+		- Malware, phishing, or scam sites
+	- Specifically must advertise use as a Malla
+:::
+
+## Questions
+- Who are the pivotal players within the Malla ecosystem?
+- How is Malla orchestrated and monetized?
+- What techniques did miscreants deploy to exploit LLMs and build up Mallas?
+
+:::notes
+There were additionally 182 prompts used by these respective Mallas which circumvented the protective measures the LLMs in question used.
+The paper thoroughly examines the following questions (read questions)
+The most commonly used LLMs are provided by OpenAI, and most use the GPT 3.5 model, since GPT 4 is significantly harder to jailbreak which I will touch on later.
+The paper specifically looks at those Mallas used for cybercrime.
+:::
+
+## Why Use a Malla?
+### Financial Motive
+::: {.incremental}
+- Cheaper compared to traditional malware generation
+	- 5-199 dollars  vs. $399
+- Revenue generation
+	- WormGPT revenue > $28K in 3 months
+:::
+
+:::notes
+- 28k found "through a case study"
+- It doesn't say in the paper how the numbers were calculated other than just an "economical comparison".
+:::
+
+## Pivotal Players
+- Freedom from safeguards
+	- FreedomGPT
+- Phishing website generation
+	- EscapeGPT
+- Worm generation
+	- WormGPT
+- General purpose
+	- EvilGPT
+
+## Techniques Used
+::: {.incremental}
+- Pre-train and prompt
+	- Use pre-trained LLM *as is*
+	- Pro: Straightforward, no fine tuning needed.
+	- Con: Need better prompt engineering
+- Pre-train and fine tune
+	- Adapter pre-trained LLM for a particular *downstream task* through fine-tuning.
+	- Pro: Less prompt engineering needed
+	- Con: More expensive
+:::
+
+:::notes
+Regarding techniques, the players fall into 2 buckets.
+There is pre-train and prompt, in which an off the shelf LLM is used, but is jail broken.
+The other is to fine tune the model for a specific purpose. This is more expensive.
+:::
+
+## Orchestration
+- Closed Source
+	- OpenAI
+	- Black box
+- Open Source
+	- Reliance not needed for vendor's API
+	- Must be *hosted*
+
+:::notes
+Orchestration of these Mallas takes the form of open sourced or closed source. OpenAI is an example of a closed source LLM, which most Mallas use. You must interact with it through an API to a black box, and the LLM must be jailbroken to counteract safety guards you are not sure of the inner workings of.
+In contrast, open sourced models, such as Meta's LlaMA, enables developers to host these independently.
+:::
+
+## Places
+- Reputable public web hosting services
+	- Netlify
+	- Sellix.io
+- Bitcoin services
+	- BTCPay Server
+- Hosting service vendor slow to act
+
+:::notes
+Mallas primarily advertise themselves on platforms they have no business being on. For example, the static hosting platform Netlify, or otherwise hide in bitcoin servers.
+They are able to get away with this since companies don't seem to care that their terms of service are being violated, or otherwise are quite slow to act.
+Most of the Mallas mentioned in this paper, despite clear violation, remain active on the web hosting services to this day.
+:::
+
+## Details
+![Malla services and details](images/Malla%20services%20and%20details.png)
+- Price $\ne$ effectiveness
+- Jailbroken = cheaper
+
+:::notes
+Here is a full table. Majority are able to generate malware. Regarding cost, each player has a different cost, but this cost does not indicate quality. The jailbroken ones are often cheaper, and there is competitive price undercutting going on between the Mallas.
+:::
+
+## Effectiveness
+::: {.incremental}
+-  Format compliance
+	- Adherence to a specified format, such as JSON or an Email
+- Compliability and validity
+	- Pipeline used to check syntax of code
+- Readability
+	- Coherence of phishing emails
+- Evasiveness
+	- Ability to avoid detection by malware/phishing detectors
+:::
+
+:::notes
+Several measures were utilized to measure effectiveness.
+:::
+
+## Results
+::: {.incremental}
+- Majority of Mallas passed syntax checks and compilation
+- Phishing site creation
+	- 80% of malicious prompts given did not generate phishing sites
+- Malware code generated from jailbreak prompts exhibits *higher similarity* to Malla services
+:::
+
+:::notes
+BadGPT performed the worst on all metrics
+:::
+
+## Limitations
+- Terminology regarding what is a Malla
+- Only "fingerprintable" Mallas mentioned
+- Code related to target connection and message sending excluded
+
+:::notes
+The paper's definition of a Malla I don't completely agree with. For example, FreedomGPT is considered a Malla, and hence any open source model could be considered one since one may generate malware with it.
+Also, only fingerprintable Mallas were mentioned, in which a variety of techniques were used, but a criterion was that in the advertising of the Malla, one of the screenshots needed to have that Malla's use in malware. There could be far more Mallas which don't have a screenshot of their use on their website.
+:::
