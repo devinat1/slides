@@ -1,5 +1,14 @@
 {
   "AutoGPT Slides.qmd": {
     "AutoGPT Slides.html": "fc1bdde4"
+  },
+  "autogpt.qmd": {
+    "autogpt.html": "591b9093"
+  },
+  "about.qmd": {
+    "about.html": "4ee8a602"
+  },
+  "index.qmd": {
+    "index.html": "2cea7d82"
   }
 }

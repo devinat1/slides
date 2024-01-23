@@ -20,7 +20,7 @@ slide-number: c/t
 :::
 
 ## Overview of Attack
-![[649c274942ea5052b44ec83e_Auto-GPT-RCE-exploit-path.png]]
+![AutoGPT RCE Exploit](649c274942ea5052b44ec83e_Auto-GPT-RCE-exploit-path.png){width=300}
 
 :::notes
 - Here is a bigger picture view:

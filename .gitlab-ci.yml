@@ -4,7 +4,10 @@ image: rocker/verse:latest
 before_script: []
 pages:
   script:
+    - mkdir public
     - quarto render --output-dir public
+    - mkdir public/site_libs/revealjs/dist/theme/images
+    - cp images/* public/site_libs/revealjs/dist/theme/images
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
