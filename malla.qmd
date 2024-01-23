@@ -1,5 +1,5 @@
 ---
-title: Malla Demystifying Real-world LLM Integrated Malicious Services
+title: Malla Demystifying LLM Integrated Malicious Services
 author: Devin Ersoy
 institute: Purdue University
 date: 2024-01-17
