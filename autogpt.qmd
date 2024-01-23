@@ -35,9 +35,7 @@ slide-number: c/t
 - `execute_python_code`: Create a Python file and execute it
 - `browse_website`: Browse Website
 - `execute_python_file`: Execute Python File
-- `append_to_file`: Append to file
 - `delete_file`: Delete file
-- `list_files`: List Files in Directory
 - `read_file`: Read a file
 - `replace_in_file`: Replace text or code in a file
 - `write_to_file`: Write to file
