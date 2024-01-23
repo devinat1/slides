@@ -98,7 +98,6 @@ OpenAI states that they may sell or share personal information, such as with 3rd
 
 
 ## If Someone is Using a Fine-tuned LLM, in This Case, what Are the Responsibilities of Developers?
-### Responsibilities
 - Google's Stance: A hands-off approach.
 	-  "It is the responsibility of the _developer_ to make sure that the LLMs it fine tunes are used properly"
 - LLM's Responsibility: Implement some safety measures
