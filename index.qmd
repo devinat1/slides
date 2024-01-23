@@ -1,1 +1,2 @@
 <iframe class="slide-deck" src="autogpt.html"></iframe>
+<iframe class="slide-deck" src="chatgptplugins.html"></iframe>

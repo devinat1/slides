@@ -1,0 +1,226 @@
+---
+title: Applying a Systematic Evaluation Framework to OpenAIs ChatGPT Plugins
+author: Devin Ersoy
+institute: Purdue University
+date: 2024-01-17
+format: revealjs
+highlight-style: github
+slide-number: c/t
+---
+
+## LLM Computing Platform
+![LLM Platform Overview](images/LLM%20Platform%20Overview.png)
+
+:::notes
+As a first step, the LLM, which in this case is GPT 4 since it is a premium feature at $20 per month for only the highest end model, which thereby has better safety mechanisms but can still be jailbroken.
+But so the LLM determines if addressing the prompt require the use of the installed plugin.
+It does this based on a plugin's "description for model".
+Through my findings, it acted quite sparingly on the plugin usage, only using a given plugin when needed. For example, I have to ask ChatGPT to explicitly search the web. In only very rare cases will it search the web if you don't explicitly ask it to, and for a lot of plugins this is largely the pattern, such as a plugin called prompt perfect where each time you say the word "perfect", it generates a more detailed prompt to achieve a better result.
+That's in theory, but in practice that plugin also leads to a whole host of issues which I will now examine.
+:::
+
+
+## Manifest
+![ChatGPT Manifest](images/ChatGPT%20Manifest.png)
+
+## Motivation
+::: {.incremental}
+- ChatGPT has its very own plugin ecosystem
+- However, there are several problems
+	- Little information as to what plugin does
+	- Verified plugins becoming unverified
+	- Lack of clear privacy policies
+	- Squatting
+:::
+
+:::notes
+ChatGPT has its very own plugin ecosystem. However, these plugins open up ChatGPT to the world of 3rd party plugins, created by 3rd parties, which could be made up of either lousy developers or malicious actors.
+The paper creates a taxonomy of attacks or a threat model as to how a malicious actor could take advantage of the plugin ecosystem for ChatGPT.
+And there are several ways, some of them familiar and which could be done outside an LLM ecosystem, and some directly related to the topic.
+:::
+
+## Attack Taxonomy
+- Plugin, User
++ Plugin, LLM Platform
++ Plugin, Plugin
+
+:::notes
+Plugin, user contains by far the most attacks
+:::
+
+## Plugin, User
+### Hijack User Machine
+- Take control over the user's machine
+- Utilize unofficial plugins
+- Exploit info
+
+:::notes
+In this version, the attacker in question may ask for a means with which to create a big query.
+:::
+
+## Example
+- Credential exfiltration
+	1. User shares credentials to SSH plugin
+	2. Credentials now usable by adversary
+
+![ls ssh attack](images/ls%20ssh%20attack.png)
+
+:::notes
+One such example presented by the researchers is that of credential exfiltration. Namely, some plugins ask for SSH credentials directly, which is obviously a bad thing since now the adversary knows your password.
+:::
+
+
+## Hijack User account
+- Exploitation of *authentication flow*
+- Abuse authorization
+- Plugin Squatting
+
+:::notes
+In this version, the authentication flow itself is compromised. One such way of achieving this is plugin squatting, where there are two plugins with the identical names, manifests, and API specification, making the user accidentally install the incorrect plugin. It is really hard to tell the difference, and through my experience plugins that were once verified become unverified and vice versa, leading to a lot of trouble.
+:::
+
+## Plugin Squatting
+![upskillr squatting](images/upskillr%20squatting.png)
+
+:::notes
+Here is an example of what I mean
+:::
+
+## Harvest User Data
+- Broad API specifications
+
+:::notes
+The purpose of this attack type is to collect personal data from users. This could be to sell this data, online advertising, etc. An example of this is the PDF exported plugin.
+:::
+
+## PDF Exporter
+![PDF Exporter broad specifications](images/PDF%20Exporter%20broad%20specifications.png)
+
+:::notes
+With this plugin, every PDF you place not only includes the PDF you export, but also the entire rest of the context of your conversation. That is because the manifest itself was too broad, and so:
+- OpenAI should work to flag these sorts of broad exports, as well as give more transparency to the user as to what the actual plugin does.
+:::
+
+## Benefit Partner Plugins
+- Benefit partner plugins
+	- Sharing user data
+	- Favorable recommendations
+
+:::notes
+In this version, the plugins actively subvert the output such that it favors some objective they wish to uphold, such as showing certain recommendations which earns them more profit.
+An example of this is a flight tracking plugin which recommends a certain flight that is the worst flight.
+:::
+
+## Manipulate Users
+- *Problematic* recommendations
+- ex) Recommend nonfactual content
+
+:::notes
+Benefiting partner plugins is just one level. Now plugins can additionally manipulate users by actively falsifying information, and hide it under the guise of "hallucination". So it is a lot easier to have this excuse with an LLM.
+:::
+
+## Refusal of Service by Plugins
+- Refuse service
+- ex) IoT door lock refusal
+
+:::notes
+Actual refusal of service, or making the server appear unresponsive, is malicious since imagine a robber coming in and robbing a house, using the fact to keep the door unlocked as he robs your goods.
+:::
+
+
+
+## Plugin, LLM Platform
+- Between plugins and LLM platform
+
+:::notes
+Next I have between plugins and the LLM platform, so the *middleware* which otherwise sits in-between.
+:::
+
+## Hijack Plugin Prompts
+- LLM is the adversary
+- Hijacks the prompts intended for a plugin
+- Lucrative potential for LLM companies
+
+:::notes
+An LLM itself could hijack the plugin prompts. This could be used to advertise, by diverting prompts to another plugin that pays the LLM provider, or by otherwise hallucinating a plugin response on purpose, with no way to tell whether this indeed occurred.
+:::
+
+## Steal Plugin Data
+- LLM steals *plugin-owned data*
+- ex) log interactions between LLM and 3rd party
+- ex) *Ghost* requests
+
+:::notes
+An LLM can steal plugin data! So if there is for example a therapy plugin, which connects to the health records of those using its plugin, then this can easily be compromised by the LLM logging the data the plugins return.
+The LLM could also make ghost requests, or asking the 3rd party plugin for your information without you knowing at all.
+:::
+
+## Pollute LLM Training Data
+- Plugin as adversary
+- Hinder LLMs factual ability
+
+:::notes
+There is an interest here by 3rd party plugins with, for example, certain political ideologies polluting the training data to be biased towards them, or otherwise for better advertising of a company's products or service.
+:::
+
+## DoS by LLM Platform
+- The LLM platform itself crashes plugin service.
+
+:::notes
+Lets say google bard doesn't like chatgpt. Then they could use their own platform to perform a denial of service on any platforms it doesn't like.
+So not only the users have this ability but also the LLM platform.
+:::
+
+## Plugin, Plugin
+- One plugin as adversary, and the plugin the victim.
+- Limitation: Only 3 plugins that can be enabled at a time.
+
+:::notes
+Finally, we deal with the section regarding plugins attacking other plugins. So its a war of attention. Note that in the OpenAI plugins, for now you can only enable 3 at a time to function together, so that is probably a limitation set on purpose to lessen this risk.
+:::
+
+## Hijack Prompts on a Topic
+- Trick LLM platform into calling itself based on *topic*
+- Topic squatting
+
+:::notes
+This is similar to the last one, except lets say there are two plugins competing for the same topic, such as for travel reservations. Then a plugin could squat that topic by instructing the LLM platform to always call itself whenever that topic is heard.
+:::
+
+## Expedia competing with others
+![Expedia enabled plugins](images/Expedia%20enabled%20plugins.png)
+
+:::notes
+Here we have 3 competing plugins Expedia, Trip.com, and Klook all who serve the same purpose, and Expedia wins the race.
+:::
+
+## Influence Prompts on Another Plugin
+- Altering data sent to another plugin
+- ex) Multipart prompts
+
+:::notes
+Similarly to a man in the middle attack, one plugin could trick another plugin by for example in multipart prompts, or prompts requiring multiple requests, by altering data prior to being sent off to the next stage.
+:::
+
+## Limitations
+::: {.incremental}
+- Outdated due to GPT store
+- Many attacks not limited only to LLMs
+- Security of plugins not analyzed in detail
+:::
+
+:::notes
+This plugin might be slightly outdated since the new GPTs and GPT store have been released, thereby changing the calculation for how exactly the attacks occur. There is still room for plugins, but GPTs can now utilize plugins as well, so it offers the same functionality as a plugin except with plugins, you are able to mix and match multiple plugins at a time, which leads to the extra taxonomy of issues such as one adversarial plugin taking over the functionality of another plugin.
+:::
+
+## Future Directions
+- Make 3rd party plugin to test with attack taxonomy
+- Examine plugins for Open Source LLMs
+- OpenAI review process
+- Review GPT store based vulnerabilities
+
+:::notes
+- One could 3rd party plugin for ChatGPT and test how successful it is in each of the attacks mentioned in the paper. But that would violate the terms of service so special permission is needed.
+- The paper also only examines only OpenAI, so it would be interesting to further examine open source LLMs and their plugins to see how a plugin can manipulate an LLM if it knows the way that LLM was constructed.
+- In the paper, it was also mentioned that OpenAI would review each plugin and verify it accordingly, but it remains lackluster the security protections it provides, so it would be interesting to look into better means to facilitate plugin interactions and protections.
+:::
