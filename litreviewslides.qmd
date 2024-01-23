@@ -1,0 +1,91 @@
+---
+title: LLM Literature Review
+author: Devin Ersoy
+institute: Purdue University
+date: 2024-01-17
+format: revealjs
+highlight-style: github
+slide-number: c/t
+---
+
+## Opening A Pandora's Box: Things You Should Know in the Era of Custom GPTs
+> Provides an analysis of security and privacy issues resulting from *custom* GPT*s*
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="[https://arxiv.org/abs/2401.00905">https://arxiv.org/abs/2401.00905</a>
+</footer>
+
+## Privacy in Large Language Models: Attacks, Defenses and Future Directions
+
+> A balance is needed between the effects privacy of LLMs and the effectiveness of the LLM resulting from the privacy enhancement.
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://doi.org/10.48550/ARXIV.2310.10383">https://doi.org/10.48550/ARXIV.2310.10383</a>
+</footer>
+
+## Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection
+> Adversaries can control an LLM without direct access through *indirect injection*.
+- ex) Polluting the training data of an LLM
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://dl.acm.org/doi/10.1145/3605764.3623985">https://dl.acm.org/doi/10.1145/3605764.3623985</a>
+</footer>
+
+## Threat due to *trust*
+>
+> "Models can currently act as a vulnerable, easy-to-manipulate, intermediate layer between users and information, which users might nevertheless overrely on. I.e., the model’s functionality itself can be attacked." (Abdelnabi et al., 2023, p. 5)
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://dl.acm.org/doi/10.1145/3605764.3623985">https://dl.acm.org/doi/10.1145/3605764.3623985</a>
+</footer>
+
+:::notes
+It is quite similar to the Malla paper
+:::
+
+## Towards Trustworthy AI Software Development Assistance
+> Outlines a means to develop *trustworthy* AI assistants that provide secure and high quality code
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://arxiv.org/abs/2312.09126">https://arxiv.org/abs/2312.09126</a>
+</footer>
+
+:::notes
+Related to security since it is regarding *secure* code.
+:::
+
+## How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs
+> Provides an analysis in how to persuade LLMs to jailbreak them through human-like communication
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://arxiv.org/abs/2401.06373">https://arxiv.org/abs/2401.06373</a>
+</footer>
+
+:::notes
+Explores intersection between everyday language interaction and AI safety.
+:::
+
+## A Novel Evaluation Framework for Assessing Resilience Against Prompt Injection Attacks in Large Language Models
+> Provides a means to *quantify* resilience of applications against prompt injection attacks
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://arxiv.org/abs/2401.00991">https://arxiv.org/abs/2401.00991</a>
+</footer>
+
+## Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models
+> Provides a *benchmark* for the robustness of LLMs against indirect prompt injection attacks
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://arxiv.org/abs/2312.14197">https://arxiv.org/abs/2312.14197</a>
+</footer>
+
+## Can Large Language Models Identify And Reason About Security Vulnerabilities? Not Yet
+> Identifies *how capable* an LLM is with regard identifying security vulnerabilities.
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://arxiv.org/abs/2312.12575">https://arxiv.org/abs/2312.12575</a>
+</footer>
+
+:::notes
+This one is quite similar to the LLM Software Security paper
+:::
