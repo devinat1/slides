@@ -1,0 +1,142 @@
+---
+title: Exploring the Limits of ChatGPT in Software Security Applications
+author: Devin Ersoy
+institute: Purdue University
+date: 2024-01-17
+format: revealjs
+highlight-style: github
+slide-number: c/t
+---
+
+## Motivation
+>
+> What is the *potential* for ChatGPT in software security?
+
+- Answer by examining use cases
+
+:::notes
+This paper examines various use cases of ChatGPT as it relates to Software Security.
+:::
+
+## Use Cases
+![ChatGPT Software Security Types](images/ChatGPT%20Software%20Security%20Types.png)
+
+:::notes
+ChatGPT was used across 3 main paradigms in the paper. I will present some of the key ones.
+:::
+
+## Claims from paper
+::: {.incremental}
+- ChatGPT for bug fixing not only is possible but also outperforms various existing methods
+- LLMs now have the potential capability to understand the relationship between assembly code and the source code
+- ChatGPT has a strong capability to predict what the original code looks like
+:::
+
+## Prompts Used
+::: {.incremental}
+- Vulnerability Fixing
+	- “Can you fix the vulnerabilities in the following code?”
+- Debloating 
+	- “Do debloating on the following code by removing the feature of accepting two arguments from the command line.”
+- Decompilation
+	- “Decompile the following disassembly to C program.”
+:::
+
+:::notes
+- These are all the prompts shown in the paper
+- They are a bit vague, which is a limitation
+	- No 2nd prompt was given
+:::
+
+## Code Generation
+> 
+> Can an LLM *reliably* generate code?
+
+:::notes
+Can it do so for use cases such as vulnerability repair, bug fixing, patching, debloating, and decomplication?
+As an example of this, I will show decompilation on Leetcode solutions
+:::
+
+## Example: Decomplication on Leetcode Solutions
+- 30 programming questions drawn from competitive programming site leetcode
+- Problems across easy, medium, hard
+- Written in C language.
+- Prompt: "Decompile the following disassembly to C program"
+
+## Results
+![Decompilation of Leetcode Solutions](images/Decompilation%20of%20Leetcode%20Solutions.png)
+- Type match: Number of functions that have *retained their types*
+- Correctness: See if code passes testcases on Leetcode platform
+
+:::notes
+GPT-4 has performed remarkably well, in type matching, and has significantly less failed executions compared to 3.5.
+:::
+
+## Vulnerability Detection
+- Limited precision in understanding *numerical operations*
+	- ex) Does not know 30 bytes < 1024 bytes
+- Not good at finding patterns between code in far away locations
+
+:::notes
+Plugins such as wolfram alpha and ChatGPT's own mathematical capabilities have made it far better now.
+For example the double free it can't detect since they are in far away regions of the codebase.
+:::
+
+## Success Example
+![Success Example of GPT](images/Success%20Example%20of%20GPT.png)
+
+## False Negative
+![False Negative of GPT](images/False%20Negative%20of%20GPT.png)
+
+:::notes
+Buffer overflow is said, whereas the real issue is double free
+:::
+
+## Vulnerability Repair
+- Generate *safe* code given vulnerable code
+- Prompt: “Can you fix the vulnerabilities in the following code?”
+- Alternative to *traditional* automated program repair via mutations.
+
+## Problems with repair
+::: {.incremental}
+- *Complex* code more than 3000 lines hard to process
+- Repairs from ChatGPT themselves contain problems
+	- Modifying original code logic
+	- Introducing new errors
+:::
+
+## Results
+- GPT-3.5 can repair 119 out of 154 test cases
+- GPT-4 can repair 139 out of 154 test cases
+
+## Conclusion
+- “while ChatGPT shows promise, its performance still falls short compared to established conventional methods in scalability, especially when dealing with large data volumes” (Wu et al., 2023, p. 13)
+
+## Limitations
+### Context Window
+::: {.incremental}
+- Updates to Model options since time of Writing
+	- [ChatGPT 4 Turbo 128k model](https://www.geeky-gadgets.com/chatgpt-4-turbo-128k/) 
+		- 16x increase
+		- Removes context window limitation
+:::
+
+:::notes
+A lot of the paper described limitations related to the context window and how ChatGPT couldn't find a lot of the bugs, but this is now resolved.
+:::
+
+
+## ChatGPT Can now run code
+- GPT 4 can now intelligently test code
+- On failure of generated code, prompts itself for potential fixes
+- Limited to python for now
+
+:::notes
+This could lead to new research as to whether this auto fix feature actually fixes the code generated (what percentage of times it is actually accurate).
+:::
+
+## Training Bias
+> 
+> "To ensure a balanced representation, the selected LeetCode problems span easy, medium, and hard levels of difficulty" ([Page 9](zotero://open-pdf/library/items/DF6MP9QS?page=9&annotation=GSXBNPF4))
+
+- ChatGPT would likely have the most training on this sort of tasks
