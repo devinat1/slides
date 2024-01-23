@@ -30,13 +30,12 @@ slide-number: c/t
 	- This is known as "remote code execution".
 :::
 
-## Capabilities
+## Important Capabilities
 - `analyze_code`: Analyze Code
 - `execute_python_code`: Create a Python file and execute it
 - `browse_website`: Browse Website
 - `execute_python_file`: Execute Python File
 - `delete_file`: Delete file
-- `read_file`: Read a file
 - `replace_in_file`: Replace text or code in a file
 - `write_to_file`: Write to file
 - `google`: Google Search
@@ -48,9 +47,6 @@ slide-number: c/t
 :::
 
 :::notes
-- [ ] Fix the issue with the images not loading
-	- [ ] Images are a very important part in the making of the slides!
-
 - The user starts by giving an initial context with what goals they wish to achieve. 
 - Then, based on this summary of what is needed for AutoGPT to do, it creates a set of goals, constraints, and resources available. The user is able to change any of these constraints and rules.
 :::
