@@ -1,5 +1,38 @@
-<iframe class="slide-deck" src="autogpt.html"></iframe>
-<iframe class="slide-deck" src="chatgptplugins.html"></iframe>
-<iframe class="slide-deck" src="llmprivacypolicy.html"></iframe>
-<iframe class="slide-deck" src="llmsecurityvulnerabilities.html"></iframe>
-<iframe class="slide-deck" src="litreviewslides.html"></iframe>
+```{=html}
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+        gap: 20px; /* Adjust the gap between squares as needed */
+    }
+
+    .slide-deck {
+        width: 100%;
+        height: 500px; /* Adjust the height of squares as needed */
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px; /* Adjust the font size as needed */
+    }
+</style>
+
+<div class="grid-container">
+    <a href="autogpt.html" target="_blank">
+        <div class="slide-deck">Auto GPT</div>
+    </a>
+    <a href="chatgptplugins.html" target="_blank">
+        <div class="slide-deck">Chat GPT Plugins</div>
+    </a>
+    <a href="llmprivacypolicy.html" target="_blank">
+        <div class="slide-deck">LLM Privacy Policy</div>
+    </a>
+    <a href="llmsecurityvulnerabilities.html" target="_blank">
+        <div class="slide-deck">LLM Security Vulnerabilities</div>
+    </a>
+    <a href="litreviewslides.html" target="_blank">
+        <div class="slide-deck">Lit Review Slides</div>
+    </a>
+</div>
+```
