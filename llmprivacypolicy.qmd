@@ -1,0 +1,206 @@
+---
+title: A Comprehensive Look at LLM Developer Agreements and Privacy Policies
+author: Devin Ersoy
+institute: Purdue University
+date: 2024-01-17
+format: revealjs
+highlight-style: github
+slide-number: c/t
+---
+
+## Questions
+- Say if an Android App Developer Uses an LLM in Her App; what Are the Agreements that the Developer Needs to Accept?
+- If Someone is Using a Fine-tuned LLM, in This Case, what Are the Responsibilities of Developers?
+- For Instance, for (1) and (2), if a User is Using the App and the LLM Returns a Result that is Offensive, Who is to Blame?
+- If an App Uses an LLM, Should the App Privacy Policy on Android Include Some Statements on LLMs or Not?
+
+:::notes
+Will be answering the questions one by one that were posed, including the following.
+:::
+
+## Say if an Android App Developer Uses an LLM in Her App; what Are the Agreements that the Developer Needs to Accept?
+
+:::notes
+Look at key players to decide who they are.
+- Listen to those players
+:::
+
+## Key Players
+- OpenAI
+- Google (Gemini)
+- EU AI Regulation
+
+:::notes
+- Traditionally was OpenAI
+	- Pixel 8 pro will be engineered for Gemini Nano
+	- Early developer access will be released
+		- Google's way of competing against OpenAI's API
+			- but OpenAI still dominates
+- Both models are now multimodal
+	- text-to-text
+	- text-to-image
+:::
+
+## Google LLM Service Specific Terms of Service
+- AI Service Disclaimer required for hallucination.
+- Reverse Engineering: Strictly prohibited.
+- Data not held for longer than needed
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://cloud.google.com/terms/service-terms">Service Specific Terms | Google Cloud</a>
+</footer>
+
+:::notes
+- Customer must actually say explicitly that
+- Google terms of service:
+- The customer of Google's API's must affirm that the AI service may hallucinate.
+- Also, reverse engineering via the API's given is not allowed.
+- Google will not train on customer data and store the prompt for longer than is needed to generate the output.
+:::
+
+
+## Training
+>
+>Any content generated from the APIs
+> **won't be trained on**
+>
+> to further fine tune against hate speech and other forms of *content violation* as showcased in the Generative AI Prohibited Use Policy, such as **attempts by the user to circumvent safety filters**.
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://cloud.google.com/terms/service-terms">Service Specific Terms | Google Cloud</a>
+</footer>
+
+:::notes
+This could be a problem since Google would not learn from use of their API, but it is also a plus for
+:::
+
+## Training
+> 
+> As between Customer and Google, Google does not assert any ownership rights in any new intellectual property created in the Generated Output.
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://cloud.google.com/terms/service-terms">Service Specific Terms | Google Cloud</a>
+</footer>
+
+## OpenAI's Privacy Policy
+- Possible sharing of data to *third parties*
+- Data not used for advertising purposes
+- User Rights: Inquiry on information processing.
+- Data Training: Certain content restrictions.
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://openai.com/policies/privacy-policy">OpenAI Privacy Policy </a>
+</footer>
+
+:::notes
+OpenAI states that they may sell or share personal information, such as with 3rd parties, as they please. However, they don't train on their API. Only services such as ChatGPT and GPTs, but those also are not trained on if chat history is turned off. Also, unlike Google, the information they collect is not sold for advertising purposes. Also, any individual subject to local raw has rights to see how their information is processed. I'm thinking this may mean they may get some information as to how OpenAI's LLMs work.
+:::
+
+
+## If Someone is Using a Fine-tuned LLM, in This Case, what Are the Responsibilities of Developers?
+### Responsibilities
+- Google's Stance: A hands-off approach.
+	-  "It is the responsibility of the _developer_ to make sure that the LLMs it fine tunes are used properly"
+- LLM's Responsibility: Implement some safety measures
+- Developer's Responsibility:
+	- Implement *reasonable safeguards*
+
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://ai.google.dev/docs/safety_guidance">Google Safety Guidance</a>
+</footer>
+
+## Key Safeguards
+::: {.incremental}
+- Limit User Control
+- Narrow scope of tasks
+- Adversarial Testing
+	- Prompt Injection
+- Safety benchmarking
+- Hard in practice since results are nondeterministic
+	- No guarantees can be given
+:::
+
+:::notes
+- These are the safeguards google recommends
+- Safety benchmarking: What is minimally acceptable
+:::
+
+## Google Safety Settings
+![safety_settings_ui](images/safety_settings_ui.png)
+<footer id="fn1" style="font-size:20px; color: #666; padding-top: 10px;">
+  <a href="https://ai.google.dev/docs/safety_setting">Google Safety Settings</a>
+</footer>
+
+
+:::notes
+- Vague settings
+- Dangerous means "encourages harmful acts"
+- Content blocked based on *probability of being unsafe*.
+:::
+
+
+## Google AI Principles
+![Google AI Principles](images/Google%20AI%20Principles.jpg)
+
+:::notes
+- Very vague
+:::
+
+## Where a Developer is not to Blame
+- Effectiveness of built in filters
+- Providing guarantees
+
+:::notes
+- As long as developer does the necessary steps, they are not responsible for the effectiveness in the built in filters provided by Google.
+- Developer should not provide guarantees that an LLM will protect data (only probability).
+:::
+
+## If an App Uses an LLM, Should the App Privacy Policy on Android Include Some Statements on LLMs or Not?
+
+## Transparency and Disclosure
+- Google: Clear notification to users must be given, Cannot simulate private individuals
+- OpenAI: Attribution of LLM generated text not necessary
+
+:::notes
+- developer must disclose to users that an AI system is being interacted with, and
+	- another person should not be simulated unless with consent or with a historical or public figure.
+- For OpenAI, ChatGPT Premium has no watermark in images, whereas via the DALLE image API they do (in the playground)
+:::
+
+## Generation Example
+>
+> The author generated this text in part with GPT-3, OpenAI’s large-scale language-generation model. Upon generating draft language, the author reviewed, edited, and revised the language to their own liking and takes ultimate responsibility for the content of this publication.
+
+## European Regulation
+- New transparency requirements
+- Risk based approach
+- Specific guidelines
+
+:::notes
+There is a new AI privacy law by Europe that gives more direct statements of what is and is not allowed.
+:::
+
+## European Guidelines
+- Ban uses of live facial recognition
+- Ban scraping of biometric data from social media (as was done with [Clearview AI](https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html))
+
+## GitHub Copilot
+**Content and Copyright**
+- AI-Generated Content: Clear demarcation required.
+- Copyright: No rights over AI-generated material.
+
+:::notes
+As I was researching these questions, I looked additionally at Github Copilot and laws surrounding rights you have as a developer. The main finding is that as a developer, if a code you wrote was AI generated, you must state that clearly within your codebase. Otherwise, any of the code you wrote could have been generated by AI, and so you lose copyright rights to your entire codebase.
+:::
+
+## Conclusions
+- Many statements were ambiguous by Google and OpenAI
+- Companies are not enforcing their own rules
+- Many laws/guidelines, including Europe's have no clear way of being enforced
+
+:::notes
+- Similarly to the [[Applying a Systematic Evaluation Framework to OpenAI's ChatGPT Plugins]] paper, companies like OpenAI are not enforcing a lot of the usage policies they themselves set.
+- Theory: No profit incentive to do so.
+:::
+
+
