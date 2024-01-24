@@ -19,6 +19,9 @@
 </style>
 
 <div class="grid-container">
+    <a href="owasp.html" target="_blank">
+        <div class="slide-deck">OWASP</div>
+    </a>
     <a href="autogpt.html" target="_blank">
         <div class="slide-deck">Auto GPT</div>
     </a>
