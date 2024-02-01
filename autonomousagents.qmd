@@ -21,6 +21,9 @@ slide-number: c/t
 - [Autonomous Agent Table](https://abyssinian-molybdenum-f76.notion.site/237e9f7515d543c0922c74f4c3012a77?v=0a309e53d6454afcbe7a5a7e169be0f9)
 :::
 
+## Agents
+![Different Agents](images/Different%20Agents.png)
+
 ## Learning Types
 - Learn from examples
 	- Fine tune from certain data sets
