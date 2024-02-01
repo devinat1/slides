@@ -19,14 +19,8 @@
 </style>
 
 <div class="grid-container">
-    <a href="owasp.html" target="_blank">
-        <div class="slide-deck">OWASP</div>
-    </a>
-    <a href="autogpt.html" target="_blank">
-        <div class="slide-deck">Auto GPT</div>
-    </a>
-    <a href="malla.html" target="_blank">
-        <div class="slide-deck">Malla</div>
+    <a href="llmsecurityvulnerabilities.html" target="_blank">
+        <div class="slide-deck">LLM Security Vulnerabilities</div>
     </a>
     <a href="chatgptplugins.html" target="_blank">
         <div class="slide-deck">Chat GPT Plugins</div>
@@ -34,13 +28,20 @@
     <a href="llmprivacypolicy.html" target="_blank">
         <div class="slide-deck">LLM Privacy Policy</div>
     </a>
-    <a href="llmsecurityvulnerabilities.html" target="_blank">
-        <div class="slide-deck">LLM Security Vulnerabilities</div>
+    <a href="malla.html" target="_blank">
+        <div class="slide-deck">Malla</div>
+    </a>
+    <a href="autogpt.html" target="_blank">
+        <div class="slide-deck">Auto GPT</div>
+    </a>
+    <a href="autonomousagents.html" target="_blank">
+        <div class="slide-deck">Survey on Autonomous Agents</div>
+    </a>
+    <a href="owasp.html" target="_blank">
+        <div class="slide-deck">OWASP</div>
     </a>
     <a href="litreviewslides.html" target="_blank">
         <div class="slide-deck">Lit Review Slides</div>
     </a>
-    <a href="autonomousagents.html" target="_blank">
-        <div class="slide-deck">Survey on Autonomous Agents</div>
 </div>
 ```
