@@ -21,8 +21,20 @@ slide-number: c/t
 - [Autonomous Agent Table](https://abyssinian-molybdenum-f76.notion.site/237e9f7515d543c0922c74f4c3012a77?v=0a309e53d6454afcbe7a5a7e169be0f9)
 :::
 
+## Agent Types
+::: {.incremental}
+- General Agent: Performs a wide variety of tasks
+- Tool Agent: Performs a specific task. Task-specific agent
+- Simulation Agent: Simulates a particular environment
+- Embodied Agent: Interacts with the physical world
+- Game Agent: Plays a particular game
+- Web Agent: Interacts with the web
+- Assistant Agent: Assists a human
+:::
+
 ## Agents
 ![Different Agents](images/Different%20Agents.png)
+
 
 ## Learning Types
 - Learn from examples
@@ -32,6 +44,7 @@ slide-number: c/t
 - Learn from additional training
 
 ## Modules
+::: {.incremental}
 - Profile Module
 	- Who and what an agent is
 - Memory Module
@@ -40,6 +53,7 @@ slide-number: c/t
 	- Breaking down tasks into manageable chunks
 - Action Module
 	- The actual actions taken
+:::
 
 ## Modules
 ![AutoGPT Anatomy](images/Pasted%20image%2020240201160149.png)
@@ -62,7 +76,10 @@ slide-number: c/t
 
 ## Profile Module
 - The initial prompt telling AI what *role* its playing
-	- Similar to what the GPT Builder does within its instructions
+
+:::notes
+- Similar to what the GPT Builder does within its instructions
+:::
 
 ## Learning Module
 - Learn from examples
