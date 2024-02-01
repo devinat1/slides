@@ -40,5 +40,7 @@
     <a href="litreviewslides.html" target="_blank">
         <div class="slide-deck">Lit Review Slides</div>
     </a>
+    <a href="autonomousagents.html" target="_blank">
+        <div class="slide-deck">Survey on Autonomous Agents</div>
 </div>
 ```

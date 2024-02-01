@@ -28,5 +28,8 @@
   },
   "owasp.qmd": {
     "owasp.html": "38d516cc"
+  },
+  "autonomousagents.qmd": {
+    "autonomousagents.html": "2ead0c6f"
   }
 }
