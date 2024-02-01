@@ -2,7 +2,7 @@
 title: A Survey on Large Language Model based Autonomous Agents
 author: Devin Ersoy
 institute: Purdue University
-date: 2024-01-17
+date: 2024-02-01
 format: revealjs
 highlight-style: github
 slide-number: c/t
@@ -16,13 +16,10 @@ slide-number: c/t
 	2. How to enable an *agent* to acquire capabilities for accomplishing specific tasks.
 
 :::notes
+- The point of an autonomous agent is to model the human thinking process. As of today, 192 different autonomous agents exist. One such familiar project is [AutoGPT](AutoGPT).
+- So the point of this paper was to organize those and answer the following questions.
 - [Autonomous Agent Table](https://abyssinian-molybdenum-f76.notion.site/237e9f7515d543c0922c74f4c3012a77?v=0a309e53d6454afcbe7a5a7e169be0f9)
 :::
-
-## Three Main Taxonomies
-- Agent Construction
-- Agent Application
-- Agent Evaluation
 
 ## Learning Types
 - Learn from examples
@@ -32,13 +29,35 @@ slide-number: c/t
 - Learn from additional training
 
 ## Modules
-- Profiling Module
-- Learning Module
+- Profile Module
+	- Who and what an agent is
 - Memory Module
+	- Split between long term and short term memory
 - Planning Module
+	- Breaking down tasks into manageable chunks
 - Action Module
+	- The actual actions taken
 
-## Profiling Module
+## Modules
+![AutoGPT Anatomy](images/Pasted%20image%2020240201160149.png)
+
+:::notes
+- Profile
+	- Context as to who and what an agent *is*
+- Memory
+	- Split between long term and short term memory, in which long term memory is the data the LLM was trained on, and shorter term memory is what is immediately relevant and reassessed as AutoGPT further prompts itself
+- Planning
+	- The act of breaking down tasks to manageable chunks
+	- Planning with feedback
+		- Adaptive approach
+			- Iterating based on *previous outcomes*
+	- Planning without feedback
+		- Rely only on preexisting knowledge
+- Action
+	- The actual actions taken, such as writing to or executing a file, and the impact of such actions.
+:::
+
+## Profile Module
 - The initial prompt telling AI what *role* its playing
 	- Similar to what the GPT Builder does within its instructions
 
@@ -75,16 +94,11 @@ slide-number: c/t
 
 ## LLM Based Autonomous Agent Evaluation
 - How well do the agents work?
-- Generative agents
-	- Subjective
-	- Judged by humans graded based on how well they played games
-	- How "believable?"
-		- More believable than human beings with "full architecture"
-	- Objective
-		- Voyager: How quickly an axe is created
+- Subjective and Objective criterion:
+	- ex) Subjective: How "believable?"
+	- ex) Objective: How quickly an axe is created
 
 ## Limitations
 - Context Window
 - Infinite Loop
 	- ex) AgentGPT looping between tester agent and programmer agent
-- 

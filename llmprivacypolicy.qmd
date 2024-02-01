@@ -177,11 +177,18 @@ OpenAI states that they may sell or share personal information, such as with 3rd
 
 :::notes
 There is a new AI privacy law by Europe that gives more direct statements of what is and is not allowed.
+Can a developer "store" an AI response in one's database?
+
+From my understanding, the implications of this are to "follow data regulations". However, the data regulations are limited mostly to [GDPR](GDPR) as opposed to the new [EU Privacy Regulations](Europeans%20Take%20a%20Major%20Step%20Toward%20Regulating%20A.I..md).
+
+Specifically, the following is of relevance:
+[Large Language Models and EU Data Protection Mapping (Some) of the Problems](Large%20Language%20Models%20and%20EU%20Data%20Protection%20Mapping%20(Some)%20of%20the%20Problems.md)
 :::
 
 ## European Guidelines
 - Ban uses of live facial recognition
 - Ban scraping of biometric data from social media (as was done with [Clearview AI](https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html))
+- GDPR compliance
 
 ## GitHub Copilot
 **Content and Copyright**
